@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dv1qcb=38l1xxc46xpp#qi(hz548)2o+2#z*0@xof=dkvl+ahk'
+SECRET_KEY = os.getenv('EMAIL_HOST_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -120,13 +120,13 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-SMART_HOME_ACCESS_TOKEN = os.getenv('SMART_HOME_ACCESS_TOKEN','7d9911941a0968f679b399414f0d94ba1fc2acba375d1aa7fdb262733d74f48f')
+SMART_HOME_ACCESS_TOKEN = os.getenv('SMART_HOME_ACCESS_TOKEN')
 SMART_HOME_API_URL = os.getenv('SMART_HOME_API_URL', 'https://smarthome.webpython.graders.eldf.ru/api/user.controller')
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.mail.ru')
 EMAIL_PORT = os.getenv('EMAIL_PORT', 465)
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER','pyasecky2010pavel@mail.ru')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD','Pp1234567890')
-EMAIL_RECEPIENT = os.getenv('EMAIL_RECEPIENT','pyasecky2012pavel@mail.ru')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_RECEPIENT = os.getenv('EMAIL_RECEPIENT')
 EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', True)
 
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
@@ -136,19 +136,3 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULE = {}
 
-# STATIC_URL = '/static/'
-# SMART_HOME_ACCESS_TOKEN = os.getenv('SMART_HOME_ACCESS_TOKEN')
-# SMART_HOME_API_URL = os.getenv('SMART_HOME_API_URL', 'https://smarthome.webpython.graders.eldf.ru/api/user.controller')
-# EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.mail.ru')
-# EMAIL_PORT = os.getenv('EMAIL_PORT', 465)
-# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-# EMAIL_RECEPIENT = os.getenv('EMAIL_RECEPIENT')
-# EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', True)
-#
-# CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
-# CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
-# CELERY_ACCEPT_CONTENT = ['application/json']
-# CELERY_RESULT_SERIALIZER = 'json'
-# CELERY_TASK_SERIALIZER = 'json'
-# CELERY_BEAT_SCHEDULE = {}
